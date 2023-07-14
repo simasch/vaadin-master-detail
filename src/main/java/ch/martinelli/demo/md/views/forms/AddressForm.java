@@ -1,8 +1,7 @@
-package ch.martinelli.demo.md.views.addressform;
+package ch.martinelli.demo.md.views.forms;
 
 import ch.martinelli.demo.md.data.entity.Address;
 import ch.martinelli.demo.md.data.service.AddressService;
-import ch.martinelli.demo.md.views.MainLayout;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -14,25 +13,21 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
 
-@PageTitle("Address Form")
-@Route(value = "address-form", layout = MainLayout.class)
-public class AddressFormView extends Div {
+public class AddressForm extends Div {
 
-    private TextField street = new TextField("Street address");
-    private TextField postalCode = new TextField("Postal code");
-    private TextField city = new TextField("City");
-    private ComboBox<String> state = new ComboBox<>("State");
-    private ComboBox<String> country = new ComboBox<>("Country");
+    private final TextField street = new TextField("Street address");
+    private final TextField postalCode = new TextField("Postal code");
+    private final TextField city = new TextField("City");
+    private final ComboBox<String> state = new ComboBox<>("State");
+    private final ComboBox<String> country = new ComboBox<>("Country");
 
-    private Button cancel = new Button("Cancel");
-    private Button save = new Button("Save");
+    private final Button cancel = new Button("Cancel");
+    private final Button save = new Button("Save");
 
-    private Binder<Address> binder = new Binder<>(Address.class);
+    private final Binder<Address> binder = new Binder<>(Address.class);
 
-    public AddressFormView(AddressService addressService) {
+    public AddressForm(AddressService addressService) {
         addClassName("address-form-view");
 
         add(createTitle());

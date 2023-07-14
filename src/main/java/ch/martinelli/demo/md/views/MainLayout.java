@@ -1,7 +1,7 @@
 package ch.martinelli.demo.md.views;
 
-import ch.martinelli.demo.md.views.addressform.AddressFormView;
-import ch.martinelli.demo.md.views.personform.PersonFormView;
+import ch.martinelli.demo.md.views.forms.AddressForm;
+import ch.martinelli.demo.md.views.forms.PersonForm;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Footer;
@@ -51,8 +51,7 @@ public class MainLayout extends AppLayout {
     private SideNav createNavigation() {
         SideNav nav = new SideNav();
 
-        nav.addItem(new SideNavItem("Person Form", PersonFormView.class, LineAwesomeIcon.USER.create()));
-        nav.addItem(new SideNavItem("Address Form", AddressFormView.class, LineAwesomeIcon.MAP_MARKER_SOLID.create()));
+        nav.addItem(new SideNavItem("Person", FormView.class, LineAwesomeIcon.USER.create()));
 
         return nav;
     }

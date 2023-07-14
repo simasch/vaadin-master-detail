@@ -1,47 +1,37 @@
-package ch.martinelli.demo.md.views.personform;
+package ch.martinelli.demo.md.views.forms;
 
 import ch.martinelli.demo.md.data.entity.Person;
 import ch.martinelli.demo.md.data.service.PersonService;
-import ch.martinelli.demo.md.views.MainLayout;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.customfield.CustomField;
 import com.vaadin.flow.component.datepicker.DatePicker;
-import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
-import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.EmailField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.RouteAlias;
 
-@PageTitle("Person Form")
-@Route(value = "person-form", layout = MainLayout.class)
-@RouteAlias(value = "", layout = MainLayout.class)
-@Uses(Icon.class)
-public class PersonFormView extends Div {
+public class PersonForm extends Div {
 
-    private TextField firstName = new TextField("First name");
-    private TextField lastName = new TextField("Last name");
-    private EmailField email = new EmailField("Email address");
-    private DatePicker dateOfBirth = new DatePicker("Birthday");
-    private PhoneNumberField phone = new PhoneNumberField("Phone number");
-    private TextField occupation = new TextField("Occupation");
+    private final TextField firstName = new TextField("First name");
+    private final TextField lastName = new TextField("Last name");
+    private final EmailField email = new EmailField("Email address");
+    private final DatePicker dateOfBirth = new DatePicker("Birthday");
+    private final PhoneNumberField phone = new PhoneNumberField("Phone number");
+    private final TextField occupation = new TextField("Occupation");
 
-    private Button cancel = new Button("Cancel");
-    private Button save = new Button("Save");
+    private final Button cancel = new Button("Cancel");
+    private final Button save = new Button("Save");
 
-    private Binder<Person> binder = new Binder<>(Person.class);
+    private final Binder<Person> binder = new Binder<>(Person.class);
 
-    public PersonFormView(PersonService personService) {
+    public PersonForm(PersonService personService) {
         addClassName("person-form-view");
 
         add(createTitle());
@@ -84,8 +74,8 @@ public class PersonFormView extends Div {
     }
 
     private static class PhoneNumberField extends CustomField<String> {
-        private ComboBox<String> countryCode = new ComboBox<>();
-        private TextField number = new TextField();
+        private final ComboBox<String> countryCode = new ComboBox<>();
+        private final TextField number = new TextField();
 
         public PhoneNumberField(String label) {
             setLabel(label);
