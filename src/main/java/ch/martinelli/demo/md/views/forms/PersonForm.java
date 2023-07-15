@@ -53,6 +53,10 @@ public class PersonForm extends Div {
         return binder.getBean();
     }
 
+    public void setBean(Person person) {
+        binder.setBean(person);
+    }
+
     private static class PhoneNumberField extends CustomField<String> {
         private final ComboBox<String> countryCode = new ComboBox<>();
         private final TextField number = new TextField();

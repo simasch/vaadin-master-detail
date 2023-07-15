@@ -1,5 +1,6 @@
 package ch.martinelli.demo.md.data.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.Email;
@@ -19,7 +20,7 @@ public class Person extends AbstractEntity {
     private String role;
     private boolean important;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Address address;
 
     public String getFirstName() {
@@ -86,4 +87,11 @@ public class Person extends AbstractEntity {
         this.important = important;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 }

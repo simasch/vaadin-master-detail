@@ -51,4 +51,8 @@ public class AddressForm extends Div {
     public Address getBean() {
         return binder.getBean();
     }
+
+    public void setBean(Address address) {
+        binder.setBean(address);
+    }
 }

@@ -51,7 +51,7 @@ public class MainLayout extends AppLayout {
     private SideNav createNavigation() {
         SideNav nav = new SideNav();
 
-        nav.addItem(new SideNavItem("Person", FormView.class, LineAwesomeIcon.USER.create()));
+        nav.addItem(new SideNavItem("Persons", PersonListView.class, LineAwesomeIcon.USER.create()));
 
         return nav;
     }
